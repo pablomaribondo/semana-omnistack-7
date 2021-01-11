@@ -18,3 +18,8 @@ As seguintes tecnologias foram utilizadas no desenvolvimento do projeto:
 - [Node.js][nodejs]
 - [React][reactjs]
 - [React Native][reactnative]
+
+[rocketseat]: https://rocketseat.com.br/
+[nodejs]: https://nodejs.org/en/
+[reactjs]: https://reactjs.org/
+[reactnative]: https://facebook.github.io/react-native/
