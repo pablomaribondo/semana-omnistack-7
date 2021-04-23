@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import io from "socket.io-client";
 
 import api from "../services/api";
 import "./Feed.css";
@@ -13,11 +14,31 @@ const Feed = () => {
 
   useEffect(() => {
     (async () => {
+      registerToSocket();
+
       const response = await api.get("posts");
 
       setFeed(response.data);
     })();
   }, []);
+
+  const registerToSocket = () => {
+    const socket = io("http://localhost:3333");
+
+    socket.on("post", newPost => {
+      setFeed(oldState => {
+        return [newPost, ...oldState];
+      });
+    });
+
+    socket.on("like", likedPost => {
+      setFeed(oldState => {
+        return oldState.map(post =>
+          post._id === likedPost._id ? likedPost : post
+        );
+      });
+    });
+  };
 
   const handleLike = postId => {
     api.post(`/posts/${postId}/like`);
