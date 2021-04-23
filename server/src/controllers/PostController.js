@@ -1,3 +1,7 @@
+const sharp = require("sharp");
+const path = require("path");
+const fs = require("fs");
+
 const Post = require("../models/Post");
 
 module.exports = {
@@ -9,7 +13,14 @@ module.exports = {
 
   async store(request, response) {
     const { author, place, description, hashtags } = request.body;
-    const { filename: image } = request.file;
+    const { filename: image, path: filePath, destination } = request.file;
+
+    await sharp(filePath)
+      .resize(500)
+      .jpeg({ quality: 70 })
+      .toFile(path.resolve(destination, "resized", image));
+
+    fs.unlinkSync(filePath);
 
     const post = await Post.create({
       author,
