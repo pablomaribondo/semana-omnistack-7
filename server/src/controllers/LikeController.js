@@ -9,6 +9,8 @@ module.exports = {
 
     await post.save();
 
+    request.io.emit("like", post);
+
     return response.json(post);
   },
 };
