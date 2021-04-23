@@ -27,7 +27,8 @@ As seguintes tecnologias foram utilizadas no desenvolvimento do projeto:
   <img src=".github/screenshot-new-web.png" alt="web new" width="500" />
 </kbd>
 
-<br />
+&nbsp;
+&nbsp;
 
 <kbd>
   <img src=".github/screenshot-feed-web.png" alt="web feed" width="500" />
