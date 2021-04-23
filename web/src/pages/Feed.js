@@ -19,6 +19,10 @@ const Feed = () => {
     })();
   }, []);
 
+  const handleLike = postId => {
+    api.post(`/posts/${postId}/like`);
+  };
+
   return (
     <section id="post-list">
       {feed.map(post => (
@@ -36,7 +40,9 @@ const Feed = () => {
 
           <footer>
             <div className="actions">
-              <img src={like} alt="" />
+              <button type="button" onClick={() => handleLike(post._id)}>
+                <img src={like} alt="" />
+              </button>
               <img src={comment} alt="" />
               <img src={send} alt="" />
             </div>
