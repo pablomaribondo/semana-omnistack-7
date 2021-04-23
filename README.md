@@ -19,6 +19,20 @@ As seguintes tecnologias foram utilizadas no desenvolvimento do projeto:
 - [React][reactjs]
 - [React Native][reactnative]
 
+## 📷 Screenshots
+
+### Web
+
+<kbd>
+  <img src=".github/screenshot-new-web.png" alt="web new" width="500" />
+</kbd>
+
+---
+
+<kbd>
+  <img src=".github/screenshot-feed-web.png" alt="web feed" width="500" />
+</kbd>
+
 [rocketseat]: https://rocketseat.com.br/
 [nodejs]: https://nodejs.org/en/
 [reactjs]: https://reactjs.org/
