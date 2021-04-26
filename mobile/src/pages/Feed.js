@@ -100,7 +100,7 @@ const Feed = () => {
 };
 
 Feed.navigationOptions = ({navigation}) => ({
-  headerRight: (
+  headerRight: () => (
     <TouchableOpacity
       onPress={() => navigation.navigate('New')}
       style={{marginRight: 20}}>
