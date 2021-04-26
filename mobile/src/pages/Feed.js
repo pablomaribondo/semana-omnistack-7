@@ -7,6 +7,7 @@ import {
   FlatList,
   StyleSheet,
 } from 'react-native';
+import io from 'socket.io-client';
 
 import api from '../services/api';
 
@@ -21,13 +22,35 @@ const Feed = () => {
 
   useEffect(() => {
     (async () => {
-      // registerToSocket();
+      registerToSocket();
 
       const response = await api.get('posts');
 
       setFeed(response.data);
     })();
   }, []);
+
+  const registerToSocket = () => {
+    const socket = io('http://10.0.3.2:3333');
+
+    socket.on('post', newPost => {
+      setFeed(oldState => {
+        return [newPost, ...oldState];
+      });
+    });
+
+    socket.on('like', likedPost => {
+      setFeed(oldState => {
+        return oldState.map(post =>
+          post._id === likedPost._id ? likedPost : post,
+        );
+      });
+    });
+  };
+
+  const handleLike = postId => {
+    api.post(`/posts/${postId}/like`);
+  };
 
   return (
     <View style={styles.container}>
@@ -52,7 +75,9 @@ const Feed = () => {
 
             <View style={styles.feedItemFooter}>
               <View style={styles.actions}>
-                <TouchableOpacity style={styles.action} onPress={() => {}}>
+                <TouchableOpacity
+                  style={styles.action}
+                  onPress={() => handleLike(item._id)}>
                   <Image source={like} />
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.action} onPress={() => {}}>
