@@ -21,17 +21,30 @@ As seguintes tecnologias foram utilizadas no desenvolvimento do projeto:
 
 ## 📷 Screenshots
 
+### Mobile:
+
+<kbd>
+  <img src=".github/screenshot-feed-mobile.png" alt="mobile feed" width="300" />
+</kbd>
+
+&nbsp;&nbsp;
+
+<kbd>
+  <img src=".github/screenshot-new-mobile.png" alt="mobile new" width="300" />
+</kbd>
+
+&nbsp;&nbsp;
+
 ### Web
 
 <kbd>
-  <img src=".github/screenshot-new-web.png" alt="web new" width="500" />
+  <img src=".github/screenshot-feed-web.png" alt="web feed" width="500" />
 </kbd>
 
-&nbsp;
-&nbsp;
+&nbsp;&nbsp;
 
 <kbd>
-  <img src=".github/screenshot-feed-web.png" alt="web feed" width="500" />
+  <img src=".github/screenshot-new-web.png" alt="web new" width="500" />
 </kbd>
 
 [rocketseat]: https://rocketseat.com.br/
